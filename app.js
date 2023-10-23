@@ -38,3 +38,49 @@ function LowerBound(arr, target, n){
     return ans
 }
 console.log(LowerBound(array,1,n))
+
+
+// ======================================= Upper Bound =========================================
+
+
+function higherBound(arr, target, n){
+    let lower = arr[0];
+    let higher = arr[arr.length - 1];
+    let ans = n;
+    
+    while(lower <= higher){
+        let middle = Math.floor((lower + higher) / 2)
+        if(arr[middle] > target){
+            ans = middle;
+            higher = middle -1
+        }else{
+            low = middle+1
+        }
+    }
+    return ans
+}
+console.log(higherBound(array,1,n))
+
+
+// ========================================== Insert ====================
+
+
+var searchInsert = function(nums, target) {
+    let left = 0;
+  let right = nums.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+ 
+  return left;
+    
+};
