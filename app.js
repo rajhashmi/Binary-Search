@@ -18,7 +18,7 @@ console.log(search([-1,0,3,5,9,12],9))
 
 // ============== Lower Bound ============================
 
-let array = [1,2,3,4,5,6,7,8,9]
+{let array = [1,2,3,4,5,6,7,8,9]
 let n = array.length;
 
 function LowerBound(arr, target, n){
@@ -38,7 +38,7 @@ function LowerBound(arr, target, n){
     return ans
 }
 console.log(LowerBound(array,1,n))
-
+}
 
 // ======================================= Upper Bound =========================================
 
@@ -84,3 +84,51 @@ var searchInsert = function(nums, target) {
   return left;
     
 };
+
+// ================================== first and last occurance ========================
+
+function findFirstAndLastOccurrence(n, key, v) {
+  let firstOccurrence = -1;
+  let lastOccurrence = -1;
+  let start = 0;
+  let end = n - 1;
+
+  while (start <= end) {
+    let mid = Math.floor(start + (end - start) / 2);
+    if (v[mid] === key) {
+      firstOccurrence = mid;
+      end = mid - 1;
+    } else if (key < v[mid]) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+  }
+
+  start = 0;
+  end = n - 1;
+
+  while (start <= end) {
+    let mid = Math.floor(start + (end - start) / 2);
+    if (v[mid] === key) {
+      lastOccurrence = mid;
+      start = mid + 1;
+    } else if (key < v[mid]) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+  }
+
+  return [firstOccurrence, lastOccurrence];
+}
+
+let n = 7;
+let key = 13;
+let v = [3, 4, 13, 13, 13, 20, 40];
+
+let [first, last] = findFirstAndLastOccurrence(n, key, v);
+
+console.log("First Occurrence:", first);
+console.log("Last Occurrence:", last);
+
