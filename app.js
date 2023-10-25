@@ -132,3 +132,13 @@ let [first, last] = findFirstAndLastOccurrence(n, key, v);
 console.log("First Occurrence:", first);
 console.log("Last Occurrence:", last);
 
+var searchMatrix = function(matrix, target) {
+  let newArr = matrix.flat(Infinity);
+  console.log(newArr)
+  for(let i = 0; i < newArr.length;i++){
+      if(newArr[i] == target ){
+          return true
+      }
+  }
+  return false
+};
