@@ -142,3 +142,12 @@ var searchMatrix = function(matrix, target) {
   }
   return false
 };
+
+function simpleSearch(arr,target){
+  for(let i = 0; i< arr.length; i++){
+    if(arr[i] === target){
+      return i
+    }
+  }
+}
+
