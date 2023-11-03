@@ -151,3 +151,16 @@ function simpleSearch(arr,target){
   }
 }
 
+// 
+
+function occurance(arr){
+  let hashMap = {};
+  for(const element in arr){
+    if(hashMap[element]){
+      hashMap[element]++;
+    }else{
+      hashMap[element] = 0
+    }
+  }
+  return hashMap
+}
